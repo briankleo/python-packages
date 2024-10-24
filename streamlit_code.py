@@ -4,19 +4,24 @@ import plotly.express as px
 import streamlit.components.v1 as components
 
 # Load the prepared data (assuming it's saved as a CSV for this example)
-data_path = 'bquxjob_4cc5e528_192b4523ce6.csv'
+data_path = 'bquxjob_3c9150a6_192be13074f.csv'
 data = pd.read_csv(data_path)
 
 # Add package categories
 def categorize_package(package):
-    deep_learning = ['tensorflow', 'keras', 'pytorch']
+    deep_learning = ['tensorflow', 'keras', 'torch', 'pytorch']
+    machine_learning = ['scikit-learn', 'xgboost', 'lightgbm']
     data_analysis = ['pandas', 'polars', 'numpy']
     web_framework = ['flask', 'django', 'streamlit', 'dash', 'shiny']
-    scraping_tools = ['beautifulsoup', 'selenium', 'requests']
-    visualization = ['plotly', 'seaborn', 'matplotlib']
+    scraping_tools = ['beautifulsoup', 'selenium', 'scrapy']
+    visualization = ['plotly', 'seaborn', 'matplotlib', 'altair', 'bokeh']
+    statistical_analysis = ['statsmodels', 'scipy', 'pymc3']
+    big_data = ['pyspark']
 
     if package in deep_learning:
         return 'Deep Learning'
+    elif package in machine_learning:
+        return 'Machine Learning'
     elif package in data_analysis:
         return 'Data Analysis'
     elif package in web_framework:
@@ -25,6 +30,10 @@ def categorize_package(package):
         return 'Web Scraping'
     elif package in visualization:
         return 'Visualization'
+    elif package in statistical_analysis:
+        return 'Statistical Analysis'
+    elif package in big_data:
+        return 'Big Data'
     else:
         return 'Other'
 
